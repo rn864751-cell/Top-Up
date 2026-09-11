@@ -1,134 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top-Up Service</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>RN TOP UP</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f5f9;
-      color: #222;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .container {
-      max-width: 420px;
-      margin: 50px auto;
-      padding: 25px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
 
-    h1 {
-      text-align: center;
-      color: #1769e0;
-    }
+.header {
+  text-align: center;
+  padding: 25px 15px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
 
-    p {
-      text-align: center;
-      color: #666;
-    }
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
 
-    label {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
+.subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+}
 
-    input, select {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+.container {
+  max-width: 450px;
+  margin: 25px auto;
+  padding: 20px;
+}
 
-    button {
-      width: 100%;
-      margin-top: 25px;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      background: #1769e0;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.card {
+  background: #1e293b;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
-    button:hover {
-      background: #0d55bd;
-    }
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
 
-    #message {
-      margin-top: 20px;
-      text-align: center;
-      font-weight: bold;
-    }
-  </style>
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #334155;
+  color: white;
+  outline: none;
+}
+
+.package {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.package button {
+  padding: 15px 8px;
+  border: 2px solid #475569;
+  border-radius: 12px;
+  background: #334155;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.package button:hover {
+  border-color: #8b5cf6;
+}
+
+.pay {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #22c55e;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pay:hover {
+  background: #16a34a;
+}
+
+.info {
+  margin-top: 18px;
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="header">
+  <div class="logo">💎 RN TOP UP</div>
+  <div class="subtitle">Free Fire Diamond Top Up</div>
+</div>
 
-    <h1>Top-Up</h1>
-    <p>Fast and Easy Top-Up Service</p>
+<div class="container">
 
-    <label>Network</label>
-    <select id="network">
-      <option value="">Select Network</option>
-      <option value="Ethio Telecom">Ethio Telecom</option>
-      <option value="Safaricom">Safaricom</option>
-    </select>
+  <div class="card">
 
-    <label>Phone Number</label>
-    <input
-      type="tel"
-      id="phone"
-      placeholder="09XXXXXXXX"
-    >
+    <h2>💎 Buy Diamonds</h2>
 
-    <label>Amount (ETB)</label>
+    <label>Free Fire Player ID</label>
     <input
       type="number"
-      id="amount"
-      placeholder="Enter amount"
-      min="1"
+      id="playerId"
+      placeholder="Enter your Player ID"
     >
 
-    <button onclick="topUp()">Continue</button>
+    <label>Select Diamond Package</label>
 
-    <div id="message"></div>
+    <div class="package">
+
+      <button onclick="selectPackage(100, 90)">
+        💎 100<br>
+        90 ETB
+      </button>
+
+      <button onclick="selectPackage(310, 270)">
+        💎 310<br>
+        270 ETB
+      </button>
+
+      <button onclick="selectPackage(520, 450)">
+        💎 520<br>
+        450 ETB
+      </button>
+
+      <button onclick="selectPackage(1060, 890)">
+        💎 1060<br>
+        890 ETB
+      </button>
+
+      <button onclick="selectPackage(2180, 1750)">
+        💎 2180<br>
+        1750 ETB
+      </button>
+
+      <button onclick="selectPackage(5600, 4300)">
+        💎 5600<br>
+        4300 ETB
+      </button>
+
+    </div>
+
+    <label>Selected Package</label>
+    <input
+      type="text"
+      id="selectedPackage"
+      placeholder="Choose a package above"
+      readonly
+    >
+
+    <button class="pay" onclick="payNow()">
+      💳 PAY NOW
+    </button>
+
+    <div class="info">
+      🔒 Secure Payment<br>
+      💰 Payment will be processed securely.<br>
+      ⚡ Diamonds will be delivered after successful payment.<br>
+      ❌ Never share your Free Fire password.
+    </div>
 
   </div>
 
-  <script>
-    function topUp() {
+</div>
 
-      const network = document.getElementById("network").value;
-      const phone = document.getElementById("phone").value;
-      const amount = document.getElementById("amount").value;
-      const message = document.getElementById("message");
+<div class="footer">
+  © 2026 RN TOP UP — All Rights Reserved
+</div>
 
-      if (!network || !phone || !amount) {
-        message.innerHTML = "⚠️ Please fill in all fields.";
-        return;
-      }
+<script>
 
-      message.innerHTML =
-        "✅ Order received. Payment integration will be added next.";
+let selectedDiamonds = 0;
+let selectedPrice = 0;
 
-    }
-  </script>
+function selectPackage(diamonds, price) {
+
+  selectedDiamonds = diamonds;
+  selectedPrice = price;
+
+  document.getElementById("selectedPackage").value =
+    diamonds + " Diamonds - " + price + " ETB";
+}
+
+function payNow() {
+
+  const playerId = document.getElementById("playerId").value;
+
+  if (playerId === "") {
+    alert("Please enter your Free Fire Player ID.");
+    return;
+  }
+
+  if (selectedDiamonds === 0) {
+    alert("Please select a Diamond package.");
+    return;
+  }
+
+  alert(
+    "Order ready!\\n\\n" +
+    "Player ID: " + playerId + "\\n" +
+    "Diamonds: " + selectedDiamonds + "\\n" +
+    "Price: " + selectedPrice + " ETB\\n\\n" +
+    "Chapa payment will be connected next."
+  );
+}
+
+</script>
 
 </body>
-</html>
+</html>      
